@@ -1,7 +1,7 @@
 # import uvicorn as uvicorn
 from mod.login import login
 from mod.scrap import scrap_attend
-from hst.mod.val import dum
+from mod.val import dum
 from fastapi import FastAPI
 
 app = FastAPI()

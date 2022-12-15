@@ -7,6 +7,7 @@ app = FastAPI()
 
 
 @app.get("/api/samvidha/attend/dis/v1")
+
 # async def attend(
 #         payload: dict = Body(
 #             {
@@ -16,20 +17,31 @@ app = FastAPI()
 #         )):
 #     username = payload['username']
 #     password = payload['password']
-def attend():
 
-    session, check = login('21951A6612', 'Ashraf0506$$$$4')
+def attend(username=None,password=None):
+    
+    if username is not None and password is not None:
+        
+        session, check = login(username, password)
 
-    if check['status'] == '1':
-        df = scrap_attend(session)
-        return {
-            "data": df.to_dict(orient='records'),
-            "message": "The Attendance"
-        }
+        if check['status'] == '1':
+            df = scrap_attend(session)
+            return {
+                "message": "The attendance data is fetched successfully",
+                "data": df.to_dict(orient='records')
+                
+            }
+        else:
+            return {
+                "message": "Invalid Credentials",
+                "data": []
+                
+            }
     else:
         return {
-            "data": [],
-            "message": "Invalid Credentials"
+            "message": "Please provide username and password",
+            "data": []
+            
         }
 
 

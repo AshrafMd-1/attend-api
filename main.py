@@ -1,4 +1,4 @@
-import uvicorn as uvicorn
+# import uvicorn as uvicorn
 from mod.login import login
 from mod.scrap import scrap_attend
 from hst.mod.val import dum
@@ -40,5 +40,5 @@ def attend(username=None, password=None):
 
 
 #
-if __name__ == "__main__":
-    uvicorn.run("main:app", port=8080)
+# if __name__ == "__main__":
+#     uvicorn.run("main:app", port=8080)

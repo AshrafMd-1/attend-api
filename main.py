@@ -1,17 +1,14 @@
 # import uvicorn as uvicorn
 from mod.login import login
 from mod.scrap import scrap_attend
-from auth.secure import decrypt
 from fastapi import FastAPI, Body
 
 app = FastAPI()
 
 
 @app.get("/api/samvidha/attend/dis/v1")
-def attend(code=None):
-    if code is not None:
-        username, password = decrypt(code)
-
+def attend(username=None, password=None):
+    if username is not None and password is not None:
         session, check = login(username, password)
 
         if check['status'] == '1':

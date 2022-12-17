@@ -10,7 +10,7 @@ app = FastAPI()
 @app.get("/api/samvidha/attend/dis/v1")
 def attend(username=None, password=None):
     if username is not None and password is not None:
-        if username == "dummy" and password == "dummy":
+        if username == "dummy12345" and password == "dummy":
             return {
                 "message": "The dummy data is fetched successfully",
                 "data": dum()
